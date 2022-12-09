@@ -1,0 +1,79 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.dialogbox {
+    width: 100px;
+    height: 100px;
+    background: grey;
+    display: none
+}
+
+.panel, .flip, .animToggle, .animUntoggle {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    background-image: radial-gradient(white, #e9ecef);
+    color: #212529;
+    border: solid 1px #212529;
+    margin: auto;
+}
+
+.panel {
+    display: none;
+}
+
+@keyframes toggled {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes untoggled {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.animToggle{
+    animation-name: toggled;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    display: block;
+}
+
+.animUntoggle {
+    animation-name: untoggled;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    display: none;
+}

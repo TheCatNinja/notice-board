@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Notice>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div class="text-center">
+    <h1 class="display-4">Latest Notices</h1>
+</div>
+<br/>
+
+@section Scripts{
+<partial name="_Notification" />
+}
+
+<div style="width:100%">
+        @foreach (var obj in Model)
+        {
+            <p class="flip">
+                    <a onclick="func(@obj.Id)">@obj.Name</a>
+                -
+                @obj.CreatedDateTime.ToString("d")
+            </p>
+            <div class="panel" id="@obj.Id">
+                @obj.Description
+            </div>
+            <br />
+        }
+</div>
+
+<script>
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    const func = async (Id) => {
+            var x = document.getElementById(Id);
+            if (x.style.display === "none" || x.style.display === "") {
+                x.style.display = "block";
+                x.className = "animToggle";
+                console.log(x.className);
+            } else {
+                x.className = "animUntoggle";
+                await delay(3000);
+                x.style.display = "none";
+                console.log(x.className);
+            }
+    }
+
+        document.addEventListener('mousedown', function (event) {
+            if (event.detail > 1) {
+                event.preventDefault();
+            }
+        }, false);
+</script>
+</body>
+</html>
